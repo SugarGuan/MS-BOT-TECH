@@ -55,12 +55,12 @@ namespace CoreBot.Dialogs
 
         private async Task<DialogTurnResult> ActStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
-            // Call LUIS and gather any potential booking details. (Note the TurnContext has the response to the prompt.) 三目表达式
+            // Call LUIS and gather any potential booking details. (Note the TurnContext has the response to the prompt.) 脠媒脛驴卤铆麓茂脢陆
             var bookingDetails = stepContext.Result != null
                     ?
                 await LuisHelper.ExecuteLuisQuery(Configuration, Logger, stepContext.Context, cancellationToken)
                     :
-                new BookingHotelDetail();
+                new BookingDetail();
 
             // In this sample we only have a single Intent we are concerned with. However, typically a scenario
             // will have multiple different Intents each corresponding to starting a different child Dialog.

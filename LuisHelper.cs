@@ -19,7 +19,7 @@ namespace CoreBot
     {
         public static async Task<BookingHotelDetail> ExecuteLuisQuery(IConfiguration configuration, ILogger logger, ITurnContext turnContext, CancellationToken cancellationToken)
         {
-            var bookingDetails = new BookingHotelDetail();
+            var bookingDetails = new BookingDetail();
 
             try
             {
@@ -44,14 +44,14 @@ namespace CoreBot
                         Console.WriteLine("Error :");
                         Console.WriteLine("LUIS setting Error");
                         Console.WriteLine("LUIS model training uncertain,There are some entites missing.");
-                        bookingDetails.Location = "北京市";
-                        bookingDetails.StartDate = "2019-07-20";
+                        // bookingDetails.Location = "北京市";
+                        // bookingDetails.StartDate = "2019-07-20";
 
                         
                     }
                        
-                    bookingDetails.Location = recognizerResult.Entities["location"]?.ToString();
-                    bookingDetails.StartDate = recognizerResult.Entities["datetimeV2"]?.ToString();
+                    // bookingDetails.Location = recognizerResult.Entities["location"]?.ToString();
+                    // bookingDetails.StartDate = recognizerResult.Entities["datetimeV2"]?.ToString();
 
                 }
                 // logger.LogWarning($"Predidct by luis.ai result that your intent is {intent} with score {score}");
